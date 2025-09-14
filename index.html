@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>JEE Books & Tools - Free Study Material for JEE Aspirants</title>
+  <meta name="description" content="Download free JEE books, access rank predictors, percentile calculators, and study planners. The one-stop site for JEE preparation.">
+  <meta name="keywords" content="JEE books, JEE rank predictor, JEE percentile calculator, JEE study planner, JEE preparation">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <!-- Navigation Bar -->
+  <header class="navbar">
+    <div class="logo">IIT GROUPS</div>
+ 
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="books.html">Books</a>
+      <a href="tools.html">Tools</a>
+      <a href="blog.html">Blog</a>
+      <a href="contact.html">Contact</a>
+      
+    </nav>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <h1>Your One-Stop Platform for JEE Preparation</h1>
+    <p>Download free books, use smart tools like rank predictor & study planner, and stay updated with exam tips.</p>
+    <a href="books.html" class="btn">Explore Books</a>
+    <a href="tools.html" class="btn secondary">Try Tools</a>
+   </section>
+
+  <!-- 💡 Motivation Quote Section -->
+<section class="quote-box">
+  <h3>💡 Motivation</h3>
+  <p id="quote">Loading quote...</p>
+  <button id="new-quote-btn">🔄 New Quote</button>
+</section>
+
+<script>
+  const quotes = [
+    { text: "Success is the sum of small efforts, repeated day in and day out.", author: "Robert Collier" },
+    { text: "Don’t watch the clock; do what it does — keep going.", author: "Sam Levenson" },
+    { text: "It always seems impossible until it’s done.", author: "Nelson Mandela" },
+    { text: "Focus on progress, not perfection.", author: "Bill Phillips" },
+    { text: "Small steps every day lead to big results.", author: "Unknown" },
+    { text: "The secret of getting ahead is getting started.", author: "Mark Twain" },
+    { text: "Push yourself, because no one else is going to do it for you.", author: "Unknown" },
+    { text: "Great things never come from comfort zones.", author: "Anonymous" },
+    { text: "Dream bigger. Do bigger.", author: "Robin Sharma" },
+    { text: "Don’t stop when you’re tired. Stop when you’re done.", author: "Marilyn Monroe" },
+    { text: "Wake up with determination. Go to bed with satisfaction.", author: "George Lorimer" },
+    { text: "Do something today that your future self will thank you for.", author: "Sean Patrick Flanery" },
+    { text: "Little things make big days.", author: "Isabel Marant" },
+    { text: "It’s going to be hard, but hard does not mean impossible.", author: "Art Briles" },
+    { text: "Don’t wait for opportunity. Create it.", author: "George Bernard Shaw" },
+    { text: "Sometimes later becomes never. Do it now.", author: "Unknown" },
+    { text: "Success doesn’t just find you. You have to go out and get it.", author: "Marva Collins" },
+    { text: "The harder you work for something, the greater you’ll feel when you achieve it.", author: "Anonymous" },
+    { text: "Dream it. Wish it. Do it.", author: "Walt Disney" },
+    { text: "Success is not for the lazy.", author: "Jim Rohn" },
+    { text: "Stay focused and never give up.", author: "Bryant McGill" },
+    { text: "Consistency is the key to success.", author: "John Maxwell" },
+    { text: "Winners are not afraid of losing. But losers are.", author: "Robert Kiyosaki" },
+    { text: "Your limitation—it’s only your imagination.", author: "Tony Robbins" },
+    { text: "Push harder than yesterday if you want a different tomorrow.", author: "Vincent Lombardi" },
+    { text: "Discipline is the bridge between goals and accomplishment.", author: "Jim Rohn" },
+    { text: "Great minds discuss ideas; average minds discuss events; small minds discuss people.", author: "Eleanor Roosevelt" },
+    { text: "Do not let what you cannot do interfere with what you can do.", author: "John Wooden" },
+    { text: "Opportunities don’t happen, you create them.", author: "Chris Grosser" },
+    { text: "Work hard in silence, let your success be your noise.", author: "Frank Ocean" },
+    { text: "The way to get started is to quit talking and begin doing.", author: "Walt Disney" },
+    { text: "Hard work beats talent when talent doesn’t work hard.", author: "Tim Notke" },
+    { text: "Your only limit is your mind.", author: "Napoleon Hill" },
+    { text: "Don’t wish for it. Work for it.", author: "Estee Lauder" },
+    { text: "A little progress each day adds up to big results.", author: "Satya Nani" },
+    { text: "What seems to us as bitter trials are often blessings in disguise.", author: "Oscar Wilde" },
+    { text: "If you want something you’ve never had, you must be willing to do something you’ve never done.", author: "Thomas Jefferson" },
+    { text: "Good things come to people who wait, but better things come to those who go out and get them.", author: "Abraham Lincoln" },
+    { text: "Don’t be afraid to give up the good to go for the great.", author: "John D. Rockefeller" },
+    { text: "Work like hell. I mean you just have to put in 80 to 100 hour weeks every week.", author: "Elon Musk" },
+    { text: "If you are not willing to risk the usual, you will have to settle for the ordinary.", author: "Jim Rohn" },
+    { text: "Success usually comes to those who are too busy to be looking for it.", author: "Henry David Thoreau" },
+    { text: "Try not to become a man of success, but rather try to become a man of value.", author: "Albert Einstein" },
+    { text: "Never give up. Today is hard, tomorrow will be worse, but the day after tomorrow will be sunshine.", author: "Jack Ma" },
+    { text: "Do what you can with all you have, wherever you are.", author: "Theodore Roosevelt" },
+    { text: "Believe you can and you’re halfway there.", author: "Theodore Roosevelt" },
+    { text: "I never dreamed about success. I worked for it.", author: "Estee Lauder" },
+    { text: "Success is walking from failure to failure with no loss of enthusiasm.", author: "Winston Churchill" },
+    { text: "All our dreams can come true, if we have the courage to pursue them.", author: "Walt Disney" },
+    { text: "A winner is a dreamer who never gives up.", author: "Nelson Mandela" },
+    { text: "Don’t count the days, make the days count.", author: "Muhammad Ali" }
+  ];
+
+  function loadQuote() {
+    const random = Math.floor(Math.random() * quotes.length);
+    const { text, author } = quotes[random];
+    document.getElementById("quote").textContent = `"${text}" — ${author}`;
+  }
+
+  // Load on page open + refresh every 60s
+  loadQuote();
+  setInterval(loadQuote, 60000);
+
+  // Manual button refresh
+  document.getElementById("new-quote-btn").addEventListener("click", loadQuote);
+</script>
+
+
+ 
+
+  <!-- AdSense Placeholder -->
+  <div class="adsense">[AdSense Ad Here]</div>
+
+  <!-- Books Showcase -->
+  <section class="showcase">
+    <h2>📚 Popular JEE Books</h2>
+    <div class="grid">
+      <div class="card">
+        <h3>Physics HC Verma</h3>
+        <p>Complete Concepts of Physics by HC Verma.</p>
+        <a href="books.html" class="btn">View</a>
+      </div>
+      <div class="card">
+        <h3>Organic Chemistry</h3>
+        <p>Best-selling Organic Chemistry by Morrison & Boyd.</p>
+        <a href="books.html" class="btn">View</a>
+      </div>
+      <div class="card">
+        <h3>Maths - Cengage</h3>
+        <p>Practice JEE Advanced level problems in Mathematics.</p>
+        <a href="books.html" class="btn">View</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- AdSense Placeholder -->
+  <div class="adsense">[AdSense Ad Here]</div>
+
+  <!-- Tools Showcase -->
+  <section class="showcase">
+    <h2>🛠 JEE TOOL by (IIT GROUPS)</h2>
+    <div class="grid">
+      <div class="card">
+        <h3>RANK PREDICTOR</h3>
+        <p>Predict your JEE rank using score/percentile.</p>
+        <a href="rank-predictor.html" class="btn">TRY NOW</a>
+      </div>
+      <div class="card">
+        <h3>COLLEGE PREDICTOR</h3>
+        <p>Find best-fit NITs, IIITs & GFTIs for your rank.</p>
+        <a href="college-predictor.html" class="btn">TRY NOW</a>
+      </div>
+      <div class="card">
+        <h3>STUDY PLANNER</h3>
+        <p>Generate a personalized study plan for JEE prep.</p>
+        <a href="study-planner.html" class="btn">TRY NOW</a>
+      </div>
+      <div class="card">
+        <h3>MORE TOOLS FROM IIT GROUPS</h3>
+        <p>Convert your raw marks into JEE percentile.</p>
+        <a href="tools.html" class="btn">VIEW MORE TOOLS</a>
+    </div>
+  </section>
+
+  <!-- AdSense Placeholder -->
+  <div class="adsense">[AdSense Ad Here]</div>
+
+  <!-- Blog Section -->
+  <section class="showcase">
+    <h2>📰 Latest Blog Posts</h2>
+    <div class="grid">
+      <div class="card">
+        <h3>JEE 2025 Preparation Strategy</h3>
+        <p>Learn how to prepare effectively for JEE 2025 with smart tips.</p>
+        <a href="blog.html" class="btn secondary">Read</a>
+      </div>
+      <div class="card">
+        <h3>Best Books for JEE 2025</h3>
+        <p>A complete list of must-have books for JEE Main & Advanced.</p>
+        <a href="blog.html" class="btn secondary">Read</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>© 2025 JEEBooks. All rights reserved.</p>
+    <div class="footer-links">
+      <a href="about.html">About</a> | <a href="contact.html">Contact</a> | <a href="privacy.html">Privacy Policy</a>
+    </div>
+  </footer>
+  <script src="script.js"></script>
+</body>
+</html>
